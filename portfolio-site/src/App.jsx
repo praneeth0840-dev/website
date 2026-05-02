@@ -33,7 +33,7 @@ const PROJECTS = [
     roles: ["GTM Engineering", "Data & Automation"],
     tech: ["Google Apps Script", "RSS", "HubSpot API"],
     metric: "1471", metricLbl: "accounts tracked",
-    co: "Deepki", yr: "2025–26", logo: "deepki.com",
+    co: "Deepki", yr: "2025–26", logo: "/Deepki.png",
   },
   {
     id: 2,
@@ -54,7 +54,7 @@ const PROJECTS = [
     roles: ["GTM Engineering", "Data & Automation"],
     tech: ["Apify", "Google Apps Script", "LinkedIn"],
     metric: "4-level", metricLbl: "fallback coverage",
-    co: "Deepki", yr: "2025–26", logo: "deepki.com",
+    co: "Deepki", yr: "2025–26", logo: "/Deepki.png",
   },
   {
     id: 3,
@@ -75,7 +75,7 @@ const PROJECTS = [
     roles: ["RevOps", "GTM Engineering"],
     tech: ["HubSpot", "Salesforce", "Make", "Google Apps Script"],
     metric: "Full", metricLbl: "funnel automated",
-    co: "Deepki", yr: "2025–26", logo: "deepki.com",
+    co: "Deepki", yr: "2025–26", logo: "/Deepki.png",
   },
   {
     id: 4,
@@ -96,7 +96,7 @@ const PROJECTS = [
     roles: ["RevOps", "Sales Operations"],
     tech: ["Salesforce", "Excel", "Google Sheets", "Gong"],
     metric: "98%", metricLbl: "forecast accuracy",
-    co: "Deepki", yr: "2025–26", logo: "deepki.com",
+    co: "Deepki", yr: "2025–26", logo: "/Deepki.png",
   },
   {
     id: 5,
@@ -117,7 +117,7 @@ const PROJECTS = [
     roles: ["RevOps", "Sales Operations"],
     tech: ["Excel", "Salesforce", "HubSpot", "Tableau"],
     metric: "40%", metricLbl: "lead gen increase",
-    co: "Deepki", yr: "2025–26", logo: "deepki.com",
+    co: "Deepki", yr: "2025–26", logo: "/Deepki.png",
   },
   {
     id: 6,
@@ -138,7 +138,7 @@ const PROJECTS = [
     roles: ["RevOps", "Data & Automation"],
     tech: ["pptxgenjs", "Salesforce", "Google Apps Script"],
     metric: "3hrs", metricLbl: "saved per week",
-    co: "Deepki", yr: "2025–26", logo: "deepki.com",
+    co: "Deepki", yr: "2025–26", logo: "/Deepki.png",
   },
   {
     id: 7,
@@ -159,7 +159,7 @@ const PROJECTS = [
     roles: ["RevOps", "Sales Operations"],
     tech: ["Salesforce", "HubSpot", "n8n", "REST APIs"],
     metric: "41%", metricLbl: "data accuracy lift",
-    co: "Deepki", yr: "2025–26", logo: "deepki.com",
+    co: "Deepki", yr: "2025–26", logo: "/Deepki.png",
   },
   {
     id: 8,
@@ -180,7 +180,7 @@ const PROJECTS = [
     roles: ["GTM Engineering", "Data & Automation"],
     tech: ["n8n", "Zapier", "Claude API", "REST APIs", "Webhooks"],
     metric: "10hrs+", metricLbl: "saved per week",
-    co: "Deepki", yr: "2025–26", logo: "deepki.com",
+    co: "Deepki", yr: "2025–26", logo: "/Deepki.png",
   },
   {
     id: 9,
@@ -210,7 +210,7 @@ const EXPERIENCE = [
     role: "Revenue Operations Specialist",
     type: "Contract",
     company: "Deepki",
-    logo: "deepki.com",
+    logo: "/Deepki.png",
     companyDesc: "ESG SaaS",
     period: "Aug 2025 – Present",
     location: "Paris, France",
@@ -250,7 +250,7 @@ const EDUCATION = [
     location: "Lille / Paris, France",
     type: "Grande École · Double Degree",
     icon: "🎓",
-    logo: "edhec.edu",
+    logo: "/EDHEC.png",
     highlights: [
       "1 of 2 recipients of the French Government & EDHEC co-financed merit scholarship — awarded out of 800 students",
       "Table tennis doubles champions — EDHEC inter-school tournament",
@@ -267,6 +267,7 @@ const EDUCATION = [
     location: "Chennai, India",
     type: "Bachelor",
     icon: "🏛️",
+    logo: "/NIFT.png",
     highlights: [
       "GPA: 9.4 / 10",
       "Worked as Junior Merchandiser for U.S. Polo Assn and Arrow",
@@ -305,31 +306,25 @@ function Tag({ role, dark }) {
 }
 
 const TECH_LOGOS = {
-  "Salesforce (Admin)":      "salesforce.com",
-  "HubSpot (Super Admin)":   "hubspot.com",
-  "HubSpot":                 "hubspot.com",
-  "Salesforce":              "salesforce.com",
-  "Gong":                    "gong.io",
-  "Apollo.io":               "apollo.io",
-  "n8n":                     "n8n.io",
-  "Make":                    "make.com",
-  "Zapier":                  "zapier.com",
-  "Apify":                   "apify.com",
-  "Tableau":                 "tableau.com",
-  "Slack":                   "slack.com",
-  "Railway":                 "railway.app",
-  "LinkedIn Sales Nav":      "linkedin.com",
-  "LinkedIn Sales Navigator":"linkedin.com",
-  "Google Sheets":           "google.com",
-  "Lemlist":                 "lemlist.com",
-  "Clay":                    "clay.com",
+  "Salesforce (Admin)":      "/Salesforce.png",
+  "HubSpot (Super Admin)":   "/Hubspot.png",
+  "HubSpot":                 "/Hubspot.png",
+  "Salesforce":              "/Salesforce.png",
+  "Gong":                    "/Gong.png",
+  "Apollo.io":               "/Apollo.png",
+  "n8n":                     "/n8n.png",
+  "Make":                    "/Make.png",
+  "Zapier":                  "/Zapier.png",
+  "Apify":                   "/Apify.png",
+  "Tableau":                 "/Tableau.png",
+  "Lemlist":                 "/Lemlist.png",
 };
 
 function TechTag({ label, dark }) {
   const domain = TECH_LOGOS[label];
   return (
     <span style={{ background:dark?"#1e293b":"#F8FAFC", color:dark?"#94A3B8":"#475569", border:`1px solid ${dark?"#334155":"#E2E8F0"}`, padding:"3px 9px", borderRadius:8, fontSize:11, fontWeight:500, display:"inline-flex", alignItems:"center", gap:5 }}>
-      {domain && <img src={`https://logo.clearbit.com/${domain}`} width={12} height={12} style={{ borderRadius:2, objectFit:"contain" }} onError={e => { e.target.style.display="none"; }} />}
+      {domain && <img src={domain} width={12} height={12} style={{ borderRadius:2, objectFit:"contain" }} onError={e => { e.target.style.display="none"; }} />}
       {label}
     </span>
   );
@@ -338,7 +333,7 @@ function TechTag({ label, dark }) {
 function CompanyLogo({ domain, size = 18 }) {
   return (
     <img
-      src={`https://logo.clearbit.com/${domain}`}
+      src={domain}
       width={size} height={size}
       style={{ borderRadius:4, objectFit:"contain" }}
       onError={e => { e.target.style.display="none"; }}
@@ -516,7 +511,7 @@ export default function App() {
 
       {/* HERO */}
       <section className="hero">
-        <div className="badge"><span className="dot" /> Open to work · Paris</div>
+        <div className="badge"><span className="dot" /> Open to work </div>
         <h1>Revenue Ops<br />&amp; <span>GTM Engineering</span></h1>
         <p className="hero-sub">
           I build the systems, automations, and dashboards that help B2B SaaS sales teams move faster —
