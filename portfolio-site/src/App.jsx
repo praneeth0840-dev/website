@@ -33,7 +33,7 @@ const PROJECTS = [
     roles: ["GTM Engineering", "Data & Automation"],
     tech: ["Google Apps Script", "RSS", "HubSpot API"],
     metric: "1471", metricLbl: "accounts tracked",
-    co: "Deepki", yr: "2025–26",
+    co: "Deepki", yr: "2025–26", logo: "deepki.com",
   },
   {
     id: 2,
@@ -54,7 +54,7 @@ const PROJECTS = [
     roles: ["GTM Engineering", "Data & Automation"],
     tech: ["Apify", "Google Apps Script", "LinkedIn"],
     metric: "4-level", metricLbl: "fallback coverage",
-    co: "Deepki", yr: "2025–26",
+    co: "Deepki", yr: "2025–26", logo: "deepki.com",
   },
   {
     id: 3,
@@ -75,7 +75,7 @@ const PROJECTS = [
     roles: ["RevOps", "GTM Engineering"],
     tech: ["HubSpot", "Salesforce", "Make", "Google Apps Script"],
     metric: "Full", metricLbl: "funnel automated",
-    co: "Deepki", yr: "2025–26",
+    co: "Deepki", yr: "2025–26", logo: "deepki.com",
   },
   {
     id: 4,
@@ -96,7 +96,7 @@ const PROJECTS = [
     roles: ["RevOps", "Sales Operations"],
     tech: ["Salesforce", "Excel", "Google Sheets", "Gong"],
     metric: "98%", metricLbl: "forecast accuracy",
-    co: "Deepki", yr: "2025–26",
+    co: "Deepki", yr: "2025–26", logo: "deepki.com",
   },
   {
     id: 5,
@@ -117,7 +117,7 @@ const PROJECTS = [
     roles: ["RevOps", "Sales Operations"],
     tech: ["Excel", "Salesforce", "HubSpot", "Tableau"],
     metric: "40%", metricLbl: "lead gen increase",
-    co: "Deepki", yr: "2025–26",
+    co: "Deepki", yr: "2025–26", logo: "deepki.com",
   },
   {
     id: 6,
@@ -138,7 +138,7 @@ const PROJECTS = [
     roles: ["RevOps", "Data & Automation"],
     tech: ["pptxgenjs", "Salesforce", "Google Apps Script"],
     metric: "3hrs", metricLbl: "saved per week",
-    co: "Deepki", yr: "2025–26",
+    co: "Deepki", yr: "2025–26", logo: "deepki.com",
   },
   {
     id: 7,
@@ -159,7 +159,7 @@ const PROJECTS = [
     roles: ["RevOps", "Sales Operations"],
     tech: ["Salesforce", "HubSpot", "n8n", "REST APIs"],
     metric: "41%", metricLbl: "data accuracy lift",
-    co: "Deepki", yr: "2025–26",
+    co: "Deepki", yr: "2025–26", logo: "deepki.com",
   },
   {
     id: 8,
@@ -180,7 +180,7 @@ const PROJECTS = [
     roles: ["GTM Engineering", "Data & Automation"],
     tech: ["n8n", "Zapier", "Claude API", "REST APIs", "Webhooks"],
     metric: "10hrs+", metricLbl: "saved per week",
-    co: "Deepki", yr: "2025–26",
+    co: "Deepki", yr: "2025–26", logo: "deepki.com",
   },
   {
     id: 9,
@@ -210,6 +210,7 @@ const EXPERIENCE = [
     role: "Revenue Operations Specialist",
     type: "Contract",
     company: "Deepki",
+    logo: "deepki.com",
     companyDesc: "ESG SaaS",
     period: "Aug 2025 – Present",
     location: "Paris, France",
@@ -249,6 +250,7 @@ const EDUCATION = [
     location: "Lille / Paris, France",
     type: "Grande École · Double Degree",
     icon: "🎓",
+    logo: "edhec.edu",
     highlights: [
       "1 of 2 recipients of the French Government & EDHEC co-financed merit scholarship — awarded out of 800 students",
       "Table tennis doubles champions — EDHEC inter-school tournament",
@@ -302,8 +304,46 @@ function Tag({ role, dark }) {
   return <span style={{ background:dark?s.dbg:s.bg, color:dark?s.dc:s.color, padding:"3px 10px", borderRadius:99, fontSize:11, fontWeight:600 }}>{role}</span>;
 }
 
+const TECH_LOGOS = {
+  "Salesforce (Admin)":      "salesforce.com",
+  "HubSpot (Super Admin)":   "hubspot.com",
+  "HubSpot":                 "hubspot.com",
+  "Salesforce":              "salesforce.com",
+  "Gong":                    "gong.io",
+  "Apollo.io":               "apollo.io",
+  "n8n":                     "n8n.io",
+  "Make":                    "make.com",
+  "Zapier":                  "zapier.com",
+  "Apify":                   "apify.com",
+  "Tableau":                 "tableau.com",
+  "Slack":                   "slack.com",
+  "Railway":                 "railway.app",
+  "LinkedIn Sales Nav":      "linkedin.com",
+  "LinkedIn Sales Navigator":"linkedin.com",
+  "Google Sheets":           "google.com",
+  "Lemlist":                 "lemlist.com",
+  "Clay":                    "clay.com",
+};
+
 function TechTag({ label, dark }) {
-  return <span style={{ background:dark?"#1e293b":"#F8FAFC", color:dark?"#94A3B8":"#475569", border:`1px solid ${dark?"#334155":"#E2E8F0"}`, padding:"3px 9px", borderRadius:8, fontSize:11, fontWeight:500 }}>{label}</span>;
+  const domain = TECH_LOGOS[label];
+  return (
+    <span style={{ background:dark?"#1e293b":"#F8FAFC", color:dark?"#94A3B8":"#475569", border:`1px solid ${dark?"#334155":"#E2E8F0"}`, padding:"3px 9px", borderRadius:8, fontSize:11, fontWeight:500, display:"inline-flex", alignItems:"center", gap:5 }}>
+      {domain && <img src={`https://logo.clearbit.com/${domain}`} width={12} height={12} style={{ borderRadius:2, objectFit:"contain" }} onError={e => { e.target.style.display="none"; }} />}
+      {label}
+    </span>
+  );
+}
+
+function CompanyLogo({ domain, size = 18 }) {
+  return (
+    <img
+      src={`https://logo.clearbit.com/${domain}`}
+      width={size} height={size}
+      style={{ borderRadius:4, objectFit:"contain" }}
+      onError={e => { e.target.style.display="none"; }}
+    />
+  );
 }
 
 function ProjectModal({ p, dark, onClose }) {
@@ -319,7 +359,10 @@ function ProjectModal({ p, dark, onClose }) {
         <button className="modal-close" onClick={onClose}><CloseIcon /></button>
         <div className="modal-header">
           <div>
-            <p className="card-meta" style={{ marginBottom:6 }}>{p.co} · {p.yr}</p>
+            <p className="card-meta" style={{ marginBottom:6, display:"flex", alignItems:"center", gap:5 }}>
+              {p.logo && <CompanyLogo domain={p.logo} size={14} />}
+              {p.co} · {p.yr}
+            </p>
             <h2 className="modal-title">{p.title}</h2>
             <p className="modal-code">{p.code}</p>
           </div>
@@ -363,7 +406,10 @@ function ProjectCard({ p, dark, delay, onClick }) {
     <div className={`card${dark?" dark":""}`} style={{ animationDelay:`${delay}s`, cursor:"pointer" }} onClick={onClick}>
       <div style={{ display:"flex", justifyContent:"space-between", gap:10 }}>
         <div style={{ flex:1 }}>
-          <p className="card-meta">{p.co} · {p.yr}</p>
+          <p className="card-meta" style={{ display:"flex", alignItems:"center", gap:5 }}>
+            {p.logo && <CompanyLogo domain={p.logo} size={13} />}
+            {p.co} · {p.yr}
+          </p>
           <h3 className="card-title">{p.title}</h3>
           <p className="card-code">{p.code}</p>
         </div>
@@ -484,9 +530,9 @@ export default function App() {
         <div className="stats">
           {[
             { val:"98%",  lbl:"Forecast accuracy achieved" },
-            { val:"471",  lbl:"Accounts auto-monitored" },
-            { val:"10hrs+", lbl:"Saved per week via automation" },
-            { val:"21%",  lbl:"CRM data accuracy improvement" },
+            { val:"1471",  lbl:"Accounts auto-monitored" },
+            { val:"14hrs+", lbl:"Saved per week via automations" },
+            { val:"81%",  lbl:"CRM data accuracy improvement" },
           ].map(s => (
             <div key={s.val} className="stat">
               <div className="stat-val">{s.val}</div>
@@ -568,7 +614,10 @@ export default function App() {
                   <h3 className="exp-role">{e.role}</h3>
                   <span className="exp-type">{e.type}</span>
                 </div>
-                <p className="exp-co">{e.company}</p>
+                <p className="exp-co" style={{ display:"flex", alignItems:"center", gap:6 }}>
+                  {e.logo && <CompanyLogo domain={e.logo} size={16} />}
+                  {e.company}
+                </p>
                 <p className="exp-desc" style={{ marginBottom:12 }}>{e.desc}</p>
                 <ul className="exp-bullets">
                   {e.bullets.map((b,j) => <li key={j}>{b}</li>)}
@@ -598,7 +647,10 @@ export default function App() {
                   </div>
                 </div>
                 <h3 className="exp-role" style={{ fontSize:18, marginBottom:4 }}>{e.degree}</h3>
-                <p className="exp-co">{e.school}</p>
+                <p className="exp-co" style={{ display:"flex", alignItems:"center", gap:6 }}>
+                  {e.logo && <CompanyLogo domain={e.logo} size={16} />}
+                  {e.school}
+                </p>
                 <ul className="edu-highlights">
                   {e.highlights.map((h,j) => <li key={j}>{h}</li>)}
                 </ul>
@@ -647,7 +699,10 @@ export default function App() {
       </section>
 
       <footer className="footer">
-        <span>Praneeth Garikipati · Revenue Operations &amp; GTM Engineering · Paris 2025</span>
+        <div style={{ display:"flex", flexDirection:"column", gap:4, alignItems:"center" }}>
+          <span>Praneeth Garikipati · Revenue Operations &amp; GTM Engineering · Paris 2025</span>
+          <span style={{ color:"#CBD5E1", fontSize:11 }}>This website was designed and built in under 20 minutes using Claude.</span>
+        </div>
       </footer>
     </div>
   );
