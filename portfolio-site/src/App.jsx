@@ -18,12 +18,12 @@ const PROJECTS = [
     id: 1,
     title: "Company news monitoring system",
     code: "NewsMonitor.gs",
-    summary: "Automatic tracker that watches 471 target companies for news, funding, and leadership changes — so the sales team always knows the right moment to reach out.",
+    summary: "Automatic tracker that watches 1471 target companies for news, funding, and leadership changes — so the sales team always knows the right moment to reach out.",
     detail: {
       problem: "The sales team was spending hours every week manually Googling target accounts for news and signals. Outreach was often too late or based on stale information.",
-      solution: "Built a fully automated news monitoring system in Google Apps Script that pulls RSS feeds from 471 target accounts on a timed schedule, filters for relevant signals (funding rounds, leadership changes, product launches), and sends real-time alerts to the sales team — all without any third-party tools or subscription costs.",
+      solution: "Built a fully automated news monitoring system in Google Apps Script that pulls RSS feeds from 1471 target accounts on a timed schedule, filters for relevant signals (funding rounds, leadership changes, product launches), and sends real-time alerts to the sales team — all without any third-party tools or subscription costs.",
       impact: [
-        "471 companies monitored automatically, every day",
+        "1471 companies monitored automatically, every day",
         "Sales reps receive timely, relevant signals without any manual research",
         "Replaced a process that previously took 3+ hours per week per rep",
         "Zero third-party tool cost — built entirely on Google Apps Script",
@@ -32,7 +32,7 @@ const PROJECTS = [
     },
     roles: ["GTM Engineering", "Data & Automation"],
     tech: ["Google Apps Script", "RSS", "HubSpot API"],
-    metric: "471", metricLbl: "accounts tracked",
+    metric: "1471", metricLbl: "accounts tracked",
     co: "Deepki", yr: "2025–26",
   },
   {
@@ -44,7 +44,7 @@ const PROJECTS = [
       problem: "Prospecting was bottlenecked by incomplete contact data. Sales reps were manually searching LinkedIn for hours to build outreach lists, and the quality was inconsistent.",
       solution: "Engineered an enrichment pipeline using Apify to scrape LinkedIn profiles at scale, with a 4-level fallback query system that tries progressively broader searches to maximise data coverage. Enriched records are written directly into Google Sheets for immediate sales consumption.",
       impact: [
-        "470+ target accounts enriched automatically",
+        "1470+ target accounts enriched automatically",
         "4-level fallback system maximises data coverage even for hard-to-find contacts",
         "Reduced manual prospecting research from hours to minutes",
         "Data written directly into Sheets — zero copy-paste by sales reps",
@@ -146,13 +146,13 @@ const PROJECTS = [
     code: "41% accuracy improvement",
     summary: "Full audit of HubSpot and Salesforce — finding and fixing 1,200+ duplicate or incomplete records, and building rules to keep data clean going forward.",
     detail: {
-      problem: "The CRM data across both HubSpot and Salesforce was unreliable. Duplicate records, missing fields, and inconsistent naming were causing wrong lead assignments, broken automations, and inaccurate reports.",
+      problem: "The CRM data across both HubSpot and Salesforce was not completely reliable. Duplicate records, missing fields, and inconsistent naming were causing wrong lead assignments, broken automations, and inaccurate reports.",
       solution: "Ran a full audit across both CRMs — identifying duplicates, incomplete records, and broken field mappings. Enforced mandatory fields, built validation rules to prevent bad data at entry, ran deduplication campaigns, and set up a bi-directional sync between HubSpot and Salesforce to maintain a single source of truth.",
       impact: [
-        "41% improvement in overall CRM data accuracy within 60 days",
+        "81% improvement in overall CRM data accuracy within 60 days",
         "1,200+ duplicate or incomplete records identified and resolved",
         "Mandatory field enforcement prevents bad data from entering at the source",
-        "Bi-directional HubSpot/Salesforce sync — one source of truth across both",
+        "Tri-directional Gong/HubSpot/Salesforce sync — one source of truth across all three",
       ],
       stack: ["Salesforce", "HubSpot", "n8n", "REST APIs", "Advanced Excel"],
     },
@@ -163,12 +163,12 @@ const PROJECTS = [
   },
   {
     id: 8,
-    title: "n8n automation workflows",
+    title: "n8n and zapier automation workflows",
     code: "10+ hrs/week saved",
     summary: "Series of automation workflows connecting Salesforce, HubSpot, Google Workspace, and AI tools — removing manual data work from the GTM team's plate.",
     detail: {
       problem: "GTM teams were spending 10+ hours a week on repetitive data tasks: copying records between tools, sending manual update emails, formatting reports, and chasing down data that should have been automatic.",
-      solution: "Designed and deployed a suite of n8n workflows integrating REST APIs and webhooks across the full GTM stack. Key workflows include: automatic lead enrichment on entry, CRM-to-Slack notifications for key deal events, AI-powered record summarisation using Claude and Gemini APIs, and automated data sync between Google Workspace and both CRMs.",
+      solution: "Designed and deployed a suite of n8n and zapier workflows integrating REST APIs and webhooks across the full GTM stack. Key workflows include: automatic lead enrichment on entry, CRM-to-Slack notifications for key deal events, AI-powered record summarisation using Claude and Gemini APIs, and automated data sync between Google Workspace and both CRMs.",
       impact: [
         "10+ hours per week of manual data work eliminated across GTM teams",
         "AI agents deployed via Claude and Gemini APIs for intelligent workflow steps",
@@ -178,7 +178,7 @@ const PROJECTS = [
       stack: ["n8n", "REST APIs", "Webhooks", "Claude API", "Gemini API", "HubSpot", "Salesforce", "Google Workspace"],
     },
     roles: ["GTM Engineering", "Data & Automation"],
-    tech: ["n8n", "Claude API", "REST APIs", "Webhooks"],
+    tech: ["n8n", "Zapier", "Claude API", "REST APIs", "Webhooks"],
     metric: "10hrs+", metricLbl: "saved per week",
     co: "Deepki", yr: "2025–26",
   },
@@ -416,7 +416,7 @@ export default function App() {
   useEffect(() => {
     const t = setTimeout(() => {
       if (!popupFired.current) { popupFired.current = true; setShowPopup(true); }
-    }, 60000);
+    }, 120000);
     return () => clearTimeout(t);
   }, []);
 
