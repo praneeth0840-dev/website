@@ -696,7 +696,7 @@ export default function App() {
         <h2>Let's talk.</h2>
         <p>
           I'm open to RevOps, GTM Engineering, Business Analyst, and CRM Admin roles at
-          English-first B2B SaaS companies in Paris. If something on this page caught your eye,
+          English-first B2B SaaS companies in Europe. If something on this page caught your eye,
           I'd love 20 minutes to tell you more.
         </p>
         <div style={{ display:"flex", gap:12, justifyContent:"center", flexWrap:"wrap", marginBottom:16 }}>
@@ -719,8 +719,8 @@ export default function App() {
 
       <footer className="footer">
         <div style={{ display:"flex", flexDirection:"column", gap:4, alignItems:"center" }}>
-          <span>Praneeth Garikipati · Revenue Operations &amp; GTM Engineering · Paris 2025</span>
-          <span style={{ color:"#CBD5E1", fontSize:11 }}>This website was designed and built in under 20 minutes using Claude.</span>
+          <span>Praneeth Garikipati · Revenue Operations &amp; GTM Engineering · Europe </span>
+          <span style={{ color:"#5B21B6", fontSize:16 }}>This website was designed and built in under 20 minutes using Claude.</span>
         </div>
       </footer>
     </div>
