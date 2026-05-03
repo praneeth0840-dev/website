@@ -225,18 +225,20 @@ const EXPERIENCE = [
     tags: ["RevOps", "GTM Engineering", "Sales Operations"],
   },
   {
-    role: "Sales and Growth Intern",
+    role: "Sales and Marketing Ops",
     type: "Contract",
     company: "Growth Student",
-    companyDesc: "EdTech, Nice",
+    companyDesc: "EdTech",
     period: "May 2024 – Sep 2024",
     location: "Nice, France",
     desc: "B2B EdTech company. Managed a pipeline of 150+ clients, produced weekly KPI reports for the CEO, and redesigned the sales process to improve conversion rates.",
     bullets: [
       "Managed B2B pipeline of 150+ clients, maintaining data hygiene and generating weekly KPI reports for the CEO",
       "Identified funnel drop-off stages and proposed sequence adjustments delivering a 30% increase in prospect response rates",
-      "Reduced average sales cycle by 2 weeks by mapping the full process from outreach to close and removing friction points",
-      "Collaborated with the CEO to refine ICP and pitch strategy",
+      "Reduced average sales cycle by 2 weeks by mapping the full process from outreach to close and removing friction points by implementing automations.",
+      "Develop and optimize data-driven strategies through cohort, revenue, and KPI analysis using Excel, Hubspot and Tableau.",
+      "Supported sales team training and ensured operational alignment across sales, marketing, and finance.",
+      "Collaborated with the CEO to refine ICP and pitch strategy across Asia and Europe.",
     ],
     tags: ["Sales Operations", "RevOps"],
   },
@@ -252,6 +254,7 @@ const EDUCATION = [
     icon: "🎓",
     logo: "/EDHEC.png",
     highlights: [
+      "Master's thesis graded 18.5 out of 20, ranked in the top 5% of the cohort",
       "1 of 2 recipients of the French Government and EDHEC co-financed merit scholarship, awarded out of 800 students",
       "Table tennis doubles champions at the EDHEC inter-school tournament",
       "A+ in Operations Management, Strategy and Business Models, and Financial Modelling and M&A",
@@ -292,6 +295,18 @@ const ABOUT_HIGHLIGHTS = [
   { icon: "🔧", text: "I build the systems — CRM architecture, automation pipelines, AI workflows — not just the strategy slides" },
   { icon: "🌍", text: "EDHEC-educated, French Government scholarship recipient, legally authorised to work in France" },
   { icon: "🤝", text: "Comfortable working across Sales, Marketing, and Tech — I translate between all three" },
+];
+
+const FLOAT_LEFT = [
+  { src:"/Salesforce.png", top:"18%", left:"3%",  delay:"0s",   dur:"3.2s" },
+  { src:"/Hubspot.png",    top:"46%", left:"6%",  delay:"0.8s", dur:"4s"   },
+  { src:"/n8n.png",        top:"74%", left:"2%",  delay:"1.6s", dur:"3.6s" },
+];
+
+const FLOAT_RIGHT = [
+  { src:"/Gong.png",   top:"18%", right:"3%",  delay:"0.4s", dur:"3.8s" },
+  { src:"/Zapier.png", top:"46%", right:"6%",  delay:"1.2s", dur:"3.4s" },
+  { src:"/Apify.png",  top:"74%", right:"2%",  delay:"2s",   dur:"4.2s" },
 ];
 
 // ─── ICONS ───────────────────────────────────────────────────────────────────
@@ -488,6 +503,23 @@ export default function App() {
     fontSize: "inherit",
   };
 
+  const floatStyle = (f) => ({
+    position: "absolute",
+    top: f.top,
+    left: f.left || "auto",
+    right: f.right || "auto",
+    width: 52,
+    height: 52,
+    borderRadius: 14,
+    objectFit: "contain",
+    background: "rgba(255,255,255,0.07)",
+    backdropFilter: "blur(8px)",
+    padding: 10,
+    opacity: 0.8,
+    boxShadow: "0 4px 20px rgba(0,0,0,0.18)",
+    animation: `floatY ${f.dur} ease-in-out ${f.delay} infinite`,
+  });
+
   return (
     <div className={`pf${dark?" dark":""}`}>
       {showPopup && <BookingPopup onClose={() => setShowPopup(false)} />}
@@ -496,7 +528,7 @@ export default function App() {
       {/* NAV */}
       <nav className={`nav${dark?" dark":""}`}>
         <div className="nav-inner">
-          <span className="nav-logo" style={{ fontSize:"29px" }}>Praneeth<span style={{ color:"#3B82F6" }}>.</span></span>
+          <span className="nav-logo" style={{ fontSize:"29px" }}>Praneeth Garikipati<span style={{ color:"#3B82F6" }}>.</span></span>
           <div className="nav-links">
             {["about","projects","experience","education","stack"].map(s => (
               <a key={s} href={`#${s}`}>{s.charAt(0).toUpperCase()+s.slice(1)}</a>
@@ -510,7 +542,20 @@ export default function App() {
       </nav>
 
       {/* HERO */}
-      <section className="hero">
+      <section className="hero" style={{ position:"relative", overflow:"hidden" }}>
+
+        {/* Floating logos — left */}
+        {FLOAT_LEFT.map((f, i) => (
+          <img key={`fl-${i}`} src={f.src} alt="" style={floatStyle(f)}
+            onError={e => { e.target.style.display="none"; }} />
+        ))}
+
+        {/* Floating logos — right */}
+        {FLOAT_RIGHT.map((f, i) => (
+          <img key={`fr-${i}`} src={f.src} alt="" style={floatStyle(f)}
+            onError={e => { e.target.style.display="none"; }} />
+        ))}
+
         <div className="badge"><span className="dot" /> Open to work</div>
         <h1>Revenue Ops<br />&amp; <span>GTM Engineering</span></h1>
         <p className="hero-sub">
@@ -543,22 +588,13 @@ export default function App() {
           <div className="about-text">
             <p className="about-label">About me</p>
             <h2 style={{ marginBottom:16 }}>The person behind the pipelines</h2>
-
-            {/* Headshot */}
             <div style={{ marginBottom:20 }}>
               <img
                 src="/praneeth.jpg"
                 alt="Praneeth Garikipati"
-                style={{
-                  width: 100,
-                  height: 100,
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                  border: "3px solid #E2E8F0",
-                }}
+                style={{ width:100, height:100, borderRadius:"50%", objectFit:"cover", border:"3px solid #E2E8F0" }}
               />
             </div>
-
             <p className="about-para">
               I am genuinely bothered by inefficiency. If I do something manually twice, I am already
               designing the system that makes it automatic the third time. I notice things nobody asked
@@ -719,7 +755,7 @@ export default function App() {
 
       <footer className="footer">
         <div style={{ display:"flex", flexDirection:"column", gap:4, alignItems:"center" }}>
-          <span>Praneeth Garikipati · Revenue Operations &amp; GTM Engineering · Europe </span>
+          <span>Praneeth Garikipati · Revenue Operations &amp; GTM Engineering · Europe</span>
           <span style={{ color:"#5B21B6", fontSize:16 }}>This website was designed and built in under 20 minutes using Claude.</span>
         </div>
       </footer>
