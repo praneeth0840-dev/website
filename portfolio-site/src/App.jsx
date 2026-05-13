@@ -291,7 +291,7 @@ const STACK = {
 };
 
 const ABOUT_HIGHLIGHTS = [
-  { icon: "📊", text: "98% forecast accuracy and a 45% regional growth disparity uncovered at a €6M ARR SaaS company" },
+  { icon: "📊", text: "98% forecast accuracy and a 45% regional growth disparity uncovered at a €XXM ARR SaaS company" },
   { icon: "🔧", text: "I build the systems — CRM architecture, automation pipelines, AI workflows — not just the strategy slides" },
   { icon: "🌍", text: "EDHEC-educated, French Government scholarship recipient, legally authorised to work in France" },
   { icon: "🤝", text: "Comfortable working across Sales, Marketing, and Tech — I translate between all three" },
